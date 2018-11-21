@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="menu-block"></div>
+<script src="lesson1.js"></script>
+<script src="MenuItem.js"></script>
+<script src="Menu.js"></script>
+<script src="SubMenu.js"></script>
+<script>
+  window.onload = () => {
+    // DOM ready
+    let menuBlock = document.getElementById('menu-block');
+
+    let menu = new Menu('my', 'my', [
+      new MenuItem('/', 'Home'),
+      new MenuItem('/blog', 'Blog'),
+      new MenuItem('/services', 'Services'),
+      new SubMenu('me', 'me', [
+        new MenuItem('/', '1'),
+        new MenuItem('/blog', '2'),
+      ])
+    ]);
+
+    // let button = document.createElement('button');
+    // button.innerText = 'удалить';
+    // button.addEventListener('click', () => my.remove());
+    // menuBlock.appendChild(button);
+
+
+
+    menuBlock.innerHTML = menu.render();
+    menu.remove();
+
+
+
+
+  }
+</script>
+</body>
+</html>
+
+
+<!--"<ul class="my" id="my">-->
+    <!--<li><a href="/">Home</a></li>-->
+    <!--<li><a href="/blog">Blog</a></li>-->
+    <!--<li><a href="/services">Services</a></li>-->
+    <!--<li class="me" id="me">-->
+        <!--<li><a href="/">1</a></li>-->
+        <!--<li><a href="/blog">2</a></li>-->
+    <!--</li>-->
+    <!---->
+    <!--<button id="my-button">Удалить</button></ul>"-->
